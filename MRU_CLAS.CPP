@@ -1,43 +1,41 @@
-//program
+//program to demonstrate class template.
 #include<iostream.h>
 #include<conio.h>
-class student
+template<class T1,class T2>
+class test
 {
-private:
-	int rollno;
-	char sname[50];
-	char sclass[44];
+	test(T1 a,T2 b)//constructor
+	{
+	cout<<a<<"\t"<<b;
+	}
+	void swap(T1 x,T2 y)
+	{
+	T1 t;
+	t=x;
+	x=y;
+	y=t;
+	cout<<"\nx:"<<x<<"\t y:"<<y;
 
-public:
-       void get();
-       void put();
+	}
 };
-
-void student::get()
-{
-  cout<<"Enter rollno->";
-  cin>>rollno;
-  cout<<"enter name->";
-  cin>>sname;
-  cout<<"enter class->";
-  cin>>sclass;
-}
-void student::put()
- {
- cout<<rollno<<"\t\t"<<sname<<"\t\t"<<sclass<<endl;
- }
-main()
+void main()
 {
 	clrscr();
-	student s1,s2,s3;
-	s1.get();
-	s2.get();
-	s3.get();
-	cout<<"##########################################################"<<endl;
-	cout<<"rollno\t\tname\t\tclass"<<endl;
-	cout<<"##########################################################"<<endl;
-	s1.put();
-	s2.put();
-	s3.put();
+	int p,q;
+	cout<<"\n enter two integer for swap x & y->\n";
+	cin>>p>>q;
+	cout<<"\n before swap x & y is->\n";
+
+	test<int,int>test1(p,q);
+	cout<<"\n after swap x & y->\n;
+	test1.swap(p,q);
+
+	char a,b;
+	cout<<"\n enter two characters for swap x & y->\n";
+	cin>>a>>b;
+	cout<<"\nbefore swap x & y->\n";
+	test<char,char>test2(a,b);
+	cout<<"\n after swap x & y=>\n";
+	test2.swap(a,b);
 	getch();
 }
